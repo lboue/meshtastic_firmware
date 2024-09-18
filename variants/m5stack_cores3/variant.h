@@ -17,4 +17,5 @@
 // LCD screens are slow, so slowdown the wipe so it looks better
 #define SCREEN_TRANSITION_FRAMERATE 1 // fps
 
-#define ILI9342_SPI_HOST VSPI_HOST // VSPI_HOST or HSPI_HOST
+// ILI9342C
+#define ILI9341_SPI_HOST VSPI_HOST // VSPI_HOST or HSPI_HOST
