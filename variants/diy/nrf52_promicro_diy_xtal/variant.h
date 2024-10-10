@@ -32,7 +32,7 @@ NRF52 PRO MICRO PIN ASSIGNMENT
 | P0.20 | GPS_RX     |   | P0.29   | BUSY        |
 | P0.22 | GPS_TX     |   | P0.02   | MISO        |
 | P0.24 | GPS_EN     |   | P1.15   | MOSI        |
-| P1.00 | BUTTON_PIN |   | P1.13   | CS          |
+| P1.00 | BUTTON_PIN |   | P1.13   | CS / NSS    |
 | P0.11 | SCL        |   | P1.11   | SCK         |
 | P1.04 | SDA        |   | P0.10   | DIO1/IRQ    |
 | P1.06 | Free pin   |   | P0.09   | RESET       |
@@ -118,14 +118,22 @@ NRF52 PRO MICRO PIN ASSIGNMENT
 //#define USE_SX1268
 
 // LORA CONFIG
+#define LORA_DIO0 26 // a No connect on the SX1262 module
+#ifndef USE_JTAG
+#define LORA_RESET (0 + 9)     // P0.09
+#endif
+#define LORA_CS   (1 + 13)     // P1.13
+#define LORA_DIO1 (0 + 10)     // P0.10 IRQ https://www.thethingsnetwork.org/forum/t/big-esp32-sx127x-topic-part-3/18436
+#define LORA_DIO2 34 // Not really used
+
 #define SX126X_CS (32 + 13)      // P1.13 FIXME - we really should define LORA_CS instead
 #define SX126X_DIO1 (0 + 10)     // P0.10 IRQ
 #define SX126X_DIO2_AS_RF_SWITCH // Note for E22 modules: DIO2 is not attached internally to TXEN for automatic TX/RX switching,
                                  // so it needs connecting externally if it is used in this way
-#define SX126X_BUSY (0 + 29)     // P0.29
-#define SX126X_RESET (0 + 9)     // P0.09
-#define SX126X_RXEN (0 + 17)     // P0.17
-#define SX126X_TXEN RADIOLIB_NC  // Assuming that DIO2 is connected to TXEN pin. If not, TXEN must be connected.
+// #define SX126X_BUSY (0 + 29)     // P0.29
+// #define SX126X_RESET (0 + 9)     // P0.09
+// #define SX126X_RXEN (0 + 17)     // P0.17
+// #define SX126X_TXEN RADIOLIB_NC  // Assuming that DIO2 is connected to TXEN pin. If not, TXEN must be connected.
 
 /*
 On the SX1262, DIO3 sets the voltage for an external TCXO, if one is present. If one is not present, then this should not be used.
