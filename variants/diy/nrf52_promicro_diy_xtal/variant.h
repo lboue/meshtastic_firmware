@@ -122,6 +122,7 @@ NRF52 PRO MICRO PIN ASSIGNMENT
 #ifndef USE_JTAG
 #define LORA_RESET (0 + 9)     // P0.09
 #endif
+#define LORA_BUSY (0 + 29)     // P0.29
 #define LORA_CS   (1 + 13)     // P1.13
 #define LORA_DIO1 (0 + 10)     // P0.10 IRQ https://www.thethingsnetwork.org/forum/t/big-esp32-sx127x-topic-part-3/18436
 #define LORA_DIO2 34 // Not really used
