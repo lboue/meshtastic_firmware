@@ -112,10 +112,10 @@ NRF52 PRO MICRO PIN ASSIGNMENT
 #define PIN_SPI_SCK (32 + 11)  // P1.11
 
 // LORA MODULES
-#define USE_LLCC68
-#define USE_SX1262
-// #define USE_RF95
-#define USE_SX1268
+// #define USE_LLCC68
+// #define USE_SX1262
+#define USE_RF95
+//#define USE_SX1268
 
 // LORA CONFIG
 #define SX126X_CS (32 + 13)      // P1.13 FIXME - we really should define LORA_CS instead
