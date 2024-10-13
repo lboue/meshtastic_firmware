@@ -107,16 +107,34 @@ NRF52 PRO MICRO PIN ASSIGNMENT
 
 // Serial interfaces
 #define SPI_INTERFACES_COUNT 1
+#define USE_RF95
+#define LORA_MISO (0 + 2)   // P0.02
+#define LORA_MOSI (32 + 15) // P1.15
+#define LORA_SCK (32 + 11)  // P1.11
+#define LORA_CS (32 + 13)  
+
+// LORA CONFIG
+
+
+
+    // P1.13 FIXME - we really should define LORA_CS instead
+#define LORA_DIO0     // P0.10 IRQ
+#define LORA_DIO1 (0 + 10)     // P0.10 IRQ
+#define LORA_RESET (0 + 9)     // P0.09
+
+
+
+// RX/TX for RFM95/SX127x
+#define RF95_RXEN (0 + 17)     // P0.17
+#define RF95_TXEN RADIOLIB_NC  // Assuming that DIO2 is connected to TXEN pin. If not, TXEN must be connected.
+#define USE_LLCC68
+#define USE_SX1262
+
+#define USE_SX1268
 
 #define PIN_SPI_MISO (0 + 2)   // P0.02
 #define PIN_SPI_MOSI (32 + 15) // P1.15
 #define PIN_SPI_SCK (32 + 11)  // P1.11
-
-// LORA MODULES
-#define USE_LLCC68
-#define USE_SX1262
-// #define USE_RF95
-#define USE_SX1268
 
 // LORA CONFIG
 #define SX126X_CS (32 + 13)      // P1.13 FIXME - we really should define LORA_CS instead
