@@ -20,3 +20,17 @@
 #define LORA_DIO2 RADIOLIB_NC // Not really used
 
 #define HAS_AXP2101
+
+#define TFT_HEIGHT 240
+#define TFT_WIDTH 320
+#define TFT_OFFSET_X 0
+#define TFT_OFFSET_Y 0
+#define TFT_BUSY -1
+#define TFT_OFFSET_ROTATION 0
+
+// LCD screens are slow, so slowdown the wipe so it looks better
+#define SCREEN_TRANSITION_FRAMERATE 30 // fps
+
+// M5Stack CoreS3 gets a white on black display
+#define TFT_MESH COLOR565(0xA0, 0xFF, 0x00) //(0x94, 0xEA, 0x67)
+#define ILI9342_SPI_HOST VSPI_HOST          // VSPI_HOST or HSPI_HOST
