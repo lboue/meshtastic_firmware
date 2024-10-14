@@ -66,6 +66,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "platform/portduino/PortduinoGlue.h"
 #endif
 
+#if defined(M5STACK_CORES3)
+#include "M5Unified.h"
+#define OLED_BLACK OLEDDISPLAY_COLOR::BLACK
+#define OLED_WHITE OLEDDISPLAY_COLOR::WHITE
+#else
+#define OLED_BLACK BLACK
+#define OLED_WHITE WHITE
+#endif
+
 using namespace meshtastic; /** @todo remove */
 
 namespace graphics
